@@ -7,20 +7,14 @@
     <title>Portfolio - Masahiko Matsumoto -</title>
     <script>
       ;(function () {
-        // Handle redirect from /portfolio to /portfolio/
-        if (window.location.pathname === '/portfolio/') {
-          window.location.replace('/portfolio')
-        }
         const redirect = localStorage.getItem('redirect')
         if (redirect) {
           localStorage.removeItem('redirect')
-          if (redirect !== location.pathname) {
-            history.replaceState(null, null, redirect)
-          }
+          history.replaceState(null, null, redirect)
         }
       })()
     </script>
-    <script type="module" crossorigin src="/portfolio/assets/index-DfQW34Zr.js"></script>
+    <script type="module" crossorigin src="/portfolio/assets/index-ogPmXU42.js"></script>
     <link rel="stylesheet" crossorigin href="/portfolio/assets/index-Bm0v8j30.css">
   </head>
   <body>
