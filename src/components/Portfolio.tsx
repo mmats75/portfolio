@@ -7,6 +7,8 @@ import Footer from './Footer'
 const Portfolio = ({ language }: PortfolioProps) => {
   const t = translations[language]
 
+  const imagePath = (name: string) => `/portfolio/images/${name}`
+
   const skills = [
     'HTML/CSS',
     'React',
@@ -23,17 +25,17 @@ const Portfolio = ({ language }: PortfolioProps) => {
   const projects = [
     {
       key: 'cartManagement',
-      image: 'images/cart-management-system.webp',
+      image: 'cart-management-system.webp',
       url: 'https://your-project-url.com',
     },
     {
       key: 'lifeInsurance',
-      image: 'images/lifeinsureease.webp',
+      image: 'lifeinsureease.webp',
       url: 'https://your-project-url.com',
     },
     {
       key: 'portfolio',
-      image: 'images/portfolio.webp',
+      image: 'portfolio.webp',
       url: 'https://your-project-url.com',
     },
   ] as const
@@ -48,7 +50,7 @@ const Portfolio = ({ language }: PortfolioProps) => {
         {/* Header/Hero Section */}
         <header className="container mx-auto px-4 py-16 text-center">
           <div className="mb-8">
-            <img src="images/avatar.jpg" alt="Profile" className="rounded-full mx-auto mb-4 w-40 h-40" />
+            <img src={imagePath('avatar.jpg')} alt="Profile" className="rounded-full mx-auto mb-4 w-40 h-40" />
             <div className="flex justify-center gap-x-1 text-center mb-4">
               <p className="text-xl">{t.greeting}</p>
               <p className="text-2xl">👋</p>
@@ -96,7 +98,7 @@ const Portfolio = ({ language }: PortfolioProps) => {
                   className="group bg-gray-800 border border-gray-700 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-transform relative"
                 >
                   <img
-                    src={`${project.image}`}
+                    src={imagePath(project.image)}
                     alt={t.projects[project.key].title}
                     className="w-full h-48 object-cover"
                   />
