@@ -1,8 +1,10 @@
 import { ArrowDown } from 'lucide-react'
 import { translations } from '../assets/translations'
+import { projects } from '../assets/projects'
 import { PortfolioProps } from '../types'
 import Header from './Header'
 import Footer from './Footer'
+import ProjectCard from './ProjectCard'
 
 const Portfolio = ({ language }: PortfolioProps) => {
   const t = translations[language]
@@ -21,24 +23,6 @@ const Portfolio = ({ language }: PortfolioProps) => {
     'MongoDB',
     'Express',
   ]
-
-  const projects = [
-    {
-      key: 'cartManagement',
-      image: 'cart-management-system.webp',
-      url: 'https://your-project-url.com',
-    },
-    {
-      key: 'lifeInsurance',
-      image: 'lifeinsureease.webp',
-      url: 'https://your-project-url.com',
-    },
-    {
-      key: 'portfolio',
-      image: 'portfolio.webp',
-      url: 'https://your-project-url.com',
-    },
-  ] as const
 
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100">
@@ -85,33 +69,17 @@ const Portfolio = ({ language }: PortfolioProps) => {
         </section>
 
         {/* Projects Section */}
-        <section className="py-16">
+        <section className="py-16 bg-black">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-extrabold mb-16 text-center">{t.projectsTitle}</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {projects.map((project) => (
-                <a
-                  key={project.key}
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group bg-gray-800 border border-gray-700 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-transform relative"
-                >
-                  <img
-                    src={imagePath(project.image)}
-                    alt={t.projects[project.key].title}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-4 pb-6">
-                    <div className="flex justify-between items-start">
-                      <div className="flex-1">
-                        <h3 className="text-xl font-extrabold text-gray-100 mb-1">{t.projects[project.key].title}</h3>
-                        <p className="text-gray-400 leading-5">{t.projects[project.key].description}</p>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              ))}
+            <div className="max-w-6xl mx-auto">
+              <div className="mb-12">
+                <h2 className="text-3xl font-bold text-white mb-4 text-center">{t.projectsTitle}</h2>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12 md:gap-x-12">
+                {projects.map((project) => (
+                  <ProjectCard key={project.key} project={project} language={language} />
+                ))}
+              </div>
             </div>
           </div>
         </section>
