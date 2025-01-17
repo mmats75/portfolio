@@ -1,50 +1,83 @@
-# React + TypeScript + Vite
+[README in English](https://github.com/mmats75/portfolio/blob/master/README-en.md)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# ポートフォリオ
 
-Currently, two official plugins are available:
+![GitHub](https://img.shields.io/github/license/mmats75/portfolio) ![GitHub last commit](https://img.shields.io/github/last-commit/mmats75/portfolio)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+React、TypeScript、Tailwind CSS で構築されたモダンでレスポンシブなポートフォリオウェブサイトです。
 
-## Expanding the ESLint configuration
+### 特徴
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- 🌐 多言語対応（日本語/英語）
+- 📱 レスポンシブデザイン
+<!-- - 🎨 スムーズなアニメーションを備えたモダンな UI
+- 🚀 Vite による高速ローディング-->
+- 🎯 TypeScript による型安全性
+- 🎨 Tailwind CSS によるスタイリング
 
-- Configure the top-level `parserOptions` property like this:
+### ウェブサイト
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
+こちらでご覧いただけます：https://mmats75.github.io/portfolio/
+
+### 技術スタック
+
+- React
+- TypeScript
+- Tailwind CSS
+- React Router
+- Vite
+
+### 始め方
+
+#### 必要条件
+
+- Node.js (v14 以上)
+- npm または yarn
+
+#### インストール
+
+1. リポジトリをクローン
+
+```bash
+git clone https://github.com/mmats75/portfolio.git
+cd portfolio
+```
+
+2. 依存関係のインストール
+
+```bash
+npm install
+```
+
+3. 開発サーバーの起動
+
+```bash
+npm run dev
+```
+
+サイトは `http://localhost:5173/portfolio/` に立ち上がります。
+
+### Github Pages へのデプロイ
+
+1. `vite.config.ts` の更新
+
+```typescript
+export default defineConfig({
+  base: '/portfolio/',
+  plugins: [react()],
 })
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. デプロイ
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm run deploy
 ```
+
+### ライセンス
+
+このプロジェクトは MIT ライセンスの下で公開されています。
+
+### Acknowledgments
+
+- Design inspired by [https://rohitk06.vercel.app/](https://rohitk06.vercel.app/)
