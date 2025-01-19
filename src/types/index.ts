@@ -39,3 +39,15 @@ export type FooterTranslations = Translations['footer']
 export interface FooterProps {
   translations: FooterTranslations
 }
+
+// Add EmailJS types
+export interface FormData {
+  user_name: string
+  user_email: string
+  message: string
+}
+export interface ValidationErrors {
+  user_name?: string
+  user_email?: string
+  message?: string
+}
