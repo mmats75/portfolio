@@ -140,7 +140,7 @@ const Portfolio = ({ language }: PortfolioProps) => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100">
+    <div className="min-h-screen bg-primary dark:bg-gray-900 text-secondary dark:text-dark-secondary">
       {/* Fixed Header */}
       <Header language={language} />
 
@@ -154,26 +154,30 @@ const Portfolio = ({ language }: PortfolioProps) => {
               <p className="text-xl">{t.greeting}</p>
               <p className="text-2xl">👋</p>
             </div>
-            <h1 className="text-5xl font-bold mb-3">{t.role}</h1>
-            <p className="text-gray-400 font-bold">{t.tagline}</p>
+            <h1 className="text-5xl font-bold mb-3 text-primary dark:text-dark-primary">{t.role}</h1>
+            <p className="text-secondary dark:text-dark-secondary font-bold">{t.tagline}</p>
           </div>
           <ArrowDown className="mx-auto w-6 h-6 animate-bounce" />
         </header>
 
         {/* About Section */}
-        <section className="bg-gray-800 py-16">
+        <section className=" py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-8 text-center">{t.aboutTitle}</h2>
-            <p className="text-gray-300 text-xl max-w-3xl mx-auto text-center mb-12">{t.aboutText}</p>
+            <h2 className="text-3xl font-bold mb-8 text-center text-primary dark:text-dark-primary">{t.aboutTitle}</h2>
+            <p className="text-secondary dark:text-dark-secondary text-xl max-w-3xl mx-auto text-center mb-12">
+              {t.aboutText}
+            </p>
 
             {/* Skills */}
             <div className="max-w-4xl mx-auto">
-              <h3 className="text-2xl font-bold mb-6 text-center">{t.skillsTitle}</h3>
+              <h3 className="text-2xl font-bold mb-6 text-center text-primary dark:text-dark-primary">
+                {t.skillsTitle}
+              </h3>
               <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
                 {skills.map((skill, index) => (
                   <div
                     key={index}
-                    className="bg-gray-700 p-3 rounded-lg text-center hover:bg-gray-600 transition-colors"
+                    className="p-3 rounded-lg text-center text-gray-600 hover:text-gray-800 dark:text-gray-300 bg-gray-300 hover:bg-gray-400 dark:bg-gray-700 dark:hover:bg-gray-600 transition-colors"
                   >
                     {skill}
                   </div>
@@ -184,11 +188,13 @@ const Portfolio = ({ language }: PortfolioProps) => {
         </section>
 
         {/* Projects Section */}
-        <section className="py-16 bg-black">
+        <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="mb-12">
-                <h2 className="text-3xl font-bold text-white mb-4 text-center">{t.projectsTitle}</h2>
+                <h2 className="text-3xl font-bold mb-4 text-center text-primary dark:text-dark-primary">
+                  {t.projectsTitle}
+                </h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12 md:gap-x-12">
                 {projects.map((project) => (
@@ -202,7 +208,9 @@ const Portfolio = ({ language }: PortfolioProps) => {
         {/* Contact Section */}
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-extrabold mb-8 text-center">{t.contactTitle}</h2>
+            <h2 className="text-4xl font-extrabold mb-8 text-center text-primary dark:text-dark-primary">
+              {t.contactTitle}
+            </h2>
             <form onSubmit={handleSubmit} className="max-w-xl mx-auto">
               <div className="grid grid-cols-2 gap-4 mb-4">
                 <div>
@@ -212,7 +220,7 @@ const Portfolio = ({ language }: PortfolioProps) => {
                     value={formData.user_name}
                     onChange={handleInputChange}
                     placeholder={t.contactForm.name}
-                    className={`w-full bg-gray-800 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none
+                    className={`w-full text-black dark:text-white bg-gray-300 placeholder-gray-600 dark:placeholder-gray-400 dark:bg-gray-800 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none
               ${errors.user_name ? 'border-2 border-red-500' : ''}`}
                   />
                   {errors.user_name && <p className="text-red-500 text-sm mt-1">{errors.user_name}</p>}
@@ -224,7 +232,7 @@ const Portfolio = ({ language }: PortfolioProps) => {
                     value={formData.user_email}
                     onChange={handleInputChange}
                     placeholder={t.contactForm.email}
-                    className={`w-full bg-gray-800 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none
+                    className={`w-full text-black dark:text-white bg-gray-300 placeholder-gray-600 dark:placeholder-gray-400 dark:bg-gray-800 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none
               ${errors.user_email ? 'border-2 border-red-500' : ''}`}
                   />
                   {errors.user_email && <p className="text-red-500 text-sm mt-1">{errors.user_email}</p>}
@@ -237,7 +245,7 @@ const Portfolio = ({ language }: PortfolioProps) => {
                   onChange={handleInputChange}
                   placeholder={t.contactForm.message}
                   rows={6}
-                  className={`w-full bg-gray-800 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none
+                  className={`w-full text-black dark:text-white bg-gray-300 placeholder-gray-600 dark:placeholder-gray-400 dark:bg-gray-800 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none
             ${errors.message ? 'border-2 border-red-500' : ''}`}
                 ></textarea>
                 {errors.message && <p className="text-red-500 text-sm mt-0.5">{errors.message}</p>}

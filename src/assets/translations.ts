@@ -64,7 +64,7 @@ export const translations = {
     },
     footer: {
       developedBy: '開発者：松本昌彦',
-      copyright: '松本昌彦 All rights reserved.',
+      copyright: 'Masahiko Matsumoto. All rights reserved.',
     },
   },
 } as const
